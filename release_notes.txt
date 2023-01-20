@@ -1,8 +1,9 @@
-V1.0.1
+V1.0.2
 
-Spiced up the build!
+We're getting serious now! 
 
 Full change list:
 
-- Introduced new primary color
 - Added automatic build versioning
+- Changed home page title to "Incrementor"
+- Changed app title to "Incrementor" 

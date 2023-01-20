@@ -22,7 +22,7 @@ workflows:
         script: | 
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
           flutter packages pub get
-          flutter build apk --release --build-name=1.0.1
+          flutter build apk --release --build-name=1.0.$PROJECT_BUILD_NUMBER
     artifacts: 
       - build/**/outputs/**/*.apk
 
