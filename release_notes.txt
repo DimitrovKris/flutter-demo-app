@@ -1,3 +1,8 @@
-V1.0.0
+V1.0.1
 
-Initial release. 
+Spiced up the build!
+
+Full change list:
+
+- Introduced new primary color
+- Added automatic build versioning
