@@ -9,6 +9,7 @@ This is a demo project created using `Flutter`.
 - Firebase App Distribution (via Codemagic)
 
 ## Project quirks and features:
-- Codemagic build status above ^
+- Codemagic build status badge above ^
 - Automatic build versioning 
 - Automatic build triggering in Codemagic and release on Firebase App Distribution via a `git push` 
+- Extended app functionalities and aesthetics

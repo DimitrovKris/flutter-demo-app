@@ -1,8 +1,8 @@
-V1.0.3
+V1.0.4
 
-Doing the unimaginable...
+Nearly there... Only one more to go!
 
 Full change list:
 
-- Added automatic build in Codemagic and release on Firebase App Distribution, triggered on Git push commands.
-- No actual changes to the application.
+- Added reset button
+- Changed layout 
