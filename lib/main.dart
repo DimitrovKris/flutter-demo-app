@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blueGrey,
       ),
-      home: const MyHomePage(title: 'Incrementor'),
+      home: const MyHomePage(title: 'Incremen2or'),
     );
   }
 }
@@ -49,6 +49,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _record = 0;
+  int _totalCounter = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -57,13 +59,18 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _counter += 2;
+      _totalCounter++;
     });
   }
 
   void _resetCounter() {
     setState(() {
+      if (_counter > _record) {
+        _record = _counter;
+      }
       _counter = 0;
+      _totalCounter++;
     });
   }
 
@@ -77,8 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+        centerTitle: true,
         title: Text(widget.title),
       ),
       body: Center(
@@ -101,15 +107,20 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(height: 200, color: Colors.transparent),
+            Container(height: 100, color: Colors.transparent),
             const Text(
-              'You have pushed the button this many times:',
+              'You have smashed the big button',
             ),
+            Container(height: 5, color: Colors.transparent),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline3,
             ),
-            Container(height: 130, color: Colors.transparent),
+            Container(height: 5, color: Colors.transparent),
+            const Text('times'),
+            Container(height: 5, color: Colors.transparent),
+            const Text('divided by two (/2) 😅 '),
+            Container(height: 120, color: Colors.transparent),
             FloatingActionButton.large(
                 onPressed: _incrementCounter,
                 tooltip: 'Increment',
@@ -117,6 +128,40 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(height: 50, color: Colors.transparent),
             ElevatedButton(
                 onPressed: _resetCounter, child: const Text('Reset')),
+            Container(height: 30, color: Colors.transparent),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Your high score is:',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                Container(width: 2, color: Colors.transparent),
+                Text(
+                  '$_record',
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+                Container(width: 3, color: Colors.transparent),
+                Text('points', style: Theme.of(context).textTheme.bodySmall),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Total button hits in this session:',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                Container(width: 2, color: Colors.transparent),
+                Text(
+                  '$_totalCounter',
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+                Container(width: 3, color: Colors.transparent),
+                Text('times', style: Theme.of(context).textTheme.bodySmall),
+              ],
+            ),
+            Container(height: 10, color: Colors.transparent),
           ],
         ),
       ),
