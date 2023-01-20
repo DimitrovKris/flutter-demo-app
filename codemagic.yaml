@@ -1,0 +1,36 @@
+workflows: 
+  android-workflow:
+    name: Android Workflow
+
+    environment:
+      groups:
+        - firebase_credentials
+      android_signing:
+        - androidKeystore
+
+    scripts:
+      - name: Set up local.properties
+        script: | 
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Get Flutter packages
+        script: | 
+          flutter packages pub get
+      - name: Flutter analyze
+        script: | 
+          flutter analyze
+      - name: Build the app
+        script: | 
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+          flutter packages pub get
+          flutter build apk --release --build-name=1.0.0
+    artifacts: 
+      - build/**/outputs/**/*.apk
+
+    publishing:
+      firebase:
+        firebase_service_account: $FIREBASE_SERVICE_ACCOUNT
+        android:
+          app_id: 1:68162269506:android:ad9c32bf81fb2685c318db
+          groups: 
+            - androidtesters
+          artifact_type: 'apk'
