@@ -1,9 +1,8 @@
-V1.0.2
+V1.0.3
 
-We're getting serious now! 
+Doing the unimaginable...
 
 Full change list:
 
-- Added automatic build versioning
-- Changed home page title to "Incrementor"
-- Changed app title to "Incrementor" 
+- Added automatic build in Codemagic and release on Firebase App Distribution, triggered on Git push commands.
+- No actual changes to the application.

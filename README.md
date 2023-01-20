@@ -3,8 +3,12 @@
 
 This is a demo project created using `Flutter`.
 
-## Technolohies used:
+## Technologies used:
 - Flutter
 - Codemagic CI/CD 
 - Firebase App Distribution (via Codemagic)
 
+## Project quirks and features:
+- Codemagic build status above ^
+- Automatic build versioning 
+- Automatic build triggering in Codemagic and release on Firebase App Distribution via a `git push` 

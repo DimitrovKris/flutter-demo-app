@@ -1,7 +1,10 @@
 workflows: 
   android-workflow:
     name: Android Workflow
-
+    triggering:
+      events:
+        - push
+        
     environment:
       groups:
         - firebase_credentials
